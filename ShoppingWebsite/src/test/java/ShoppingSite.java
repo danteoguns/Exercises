@@ -4,6 +4,10 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ShoppingSite {
     private WebDriver driver;
@@ -13,6 +17,7 @@ public class ShoppingSite {
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
         driver = new ChromeDriver();
+
     }
 
     @Test
@@ -23,7 +28,11 @@ public class ShoppingSite {
         // Homepage
         Homepage pageOne = PageFactory.initElements(driver, Homepage.class);
         pageOne.searchQuery();
-        Thread.sleep(500);
+
+//        WebElement explicitWait =
+//                (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(
+//                        By.xpath("//*[@id=\"add_to_cart\"]/button")));
+//        pageOne.toCheckout();
 
         // Click on search result (Ajax)
 

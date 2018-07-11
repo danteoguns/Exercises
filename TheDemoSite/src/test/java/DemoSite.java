@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.NullPointerException;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -36,7 +37,7 @@ public class DemoSite {
     @Test
     public void testAll() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get(url);
+            driver.get(url);
 
         // Homepage
         Homepage pageOne = PageFactory.initElements(driver, Homepage.class);
@@ -101,7 +102,7 @@ public class DemoSite {
                 workbookTwo = new XSSFWorkbook(fileTwo);
             } catch (IOException i) {}
                 XSSFSheet sheetTwo = workbookTwo.getSheetAt(0);
-                XSSFCell 0.ellTwo = sheetTwo.getRow(1).getCell(1);
+                XSSFCell cellTwo = sheetTwo.getRow(1).getCell(1);
                 System.out.println("The password is: " + cellTwo.getStringCellValue());
     }
 

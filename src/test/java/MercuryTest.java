@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 public class MercuryTest {
     private WebDriver driver;
 
-
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:/Development/web_driver/chromedriver.exe");
@@ -49,7 +48,6 @@ public class MercuryTest {
         log.loginPass();
         log.loginSubmit();
     }
-
 
     @After
     public void tearDown() throws InterruptedException {

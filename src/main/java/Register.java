@@ -11,8 +11,6 @@ public class Register {
         firstName.sendKeys("Nathan");
     }
 
-
-
     @FindBy(xpath = Constant.last_name)
     private WebElement lastName;
 
@@ -20,8 +18,6 @@ public class Register {
         lastName.click();
         lastName.sendKeys("Ahrens");
     }
-
-
 
     @FindBy(xpath = Constant.phone)
     private WebElement phoneNo;
@@ -31,8 +27,6 @@ public class Register {
         phoneNo.sendKeys("078364537213");
     }
 
-
-
     @FindBy(xpath = Constant.email)
     private WebElement email;
 
@@ -40,8 +34,6 @@ public class Register {
         email.click();
         email.sendKeys("bob@email.com");
     }
-
-
 
     @FindBy(xpath = Constant.addressLineOne)
     private WebElement address1;
@@ -51,8 +43,6 @@ public class Register {
         address1.sendKeys("1 Its coming home");
     }
 
-
-
     @FindBy(xpath = Constant.addressLineTwo)
     private WebElement address2;
 
@@ -61,7 +51,6 @@ public class Register {
         address2.sendKeys("England");
     }
 
-
     @FindBy(xpath = Constant.city)
     private WebElement city;
 
@@ -69,8 +58,6 @@ public class Register {
         city.click();
         city.sendKeys("the city");
     }
-
-
 
     @FindBy(xpath = Constant.state)
     private WebElement state;
@@ -111,7 +98,6 @@ public class Register {
         confirmUserPass.click();
         confirmUserPass.sendKeys("pass");
     }
-
 
     @FindBy(xpath = Constant.finalSubmit)
     private WebElement finalSubmit;

@@ -9,8 +9,4 @@ public class Homepage {
     public void registerUser(){
         register.click();
     }
-
-
-
-
 }

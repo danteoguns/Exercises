@@ -26,7 +26,6 @@ public class SignOn {
         loginPass.sendKeys("pass");
     }
 
-
     @FindBy(xpath = Constant.loginSubmit)
     private WebElement loginSubmit;
 

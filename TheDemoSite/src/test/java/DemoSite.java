@@ -25,7 +25,7 @@ public class DemoSite {
     String url = "http://thedemosite.co.uk";
 
 
-    ExtentReports reports = new ExtentReports("C:\\Users\\Admin\\Desktop\\Daniel\\TheDemoSite\\automated.html", true);
+    ExtentReports reports = new ExtentReports("C:\\Users\\Admin\\Desktop\\Daniel\\Exercises\\TheDemoSite\\automated.html", true);
     ExtentTest test;
 
     @Before
@@ -37,7 +37,21 @@ public class DemoSite {
     @Test
     public void testAll() throws InterruptedException {
         driver.manage().window().maximize();
-            driver.get(url);
+        driver.get(url);
+
+        FileInputStream file = null;
+        try {
+            file = new FileInputStream(Constant.Path_TestData + Constant.File_TestData);
+        } catch (FileNotFoundException e) {
+        }
+        XSSFWorkbook workbook = null;
+        try {
+            workbook = new XSSFWorkbook(file);
+        } catch (IOException i) {
+        }
+        XSSFSheet sheet = workbook.getSheetAt(0);
+        XSSFCell cell = sheet.getRow(1).getCell(0);
+        XSSFCell cellTwo = sheet.getRow(1).getCell(1);
 
         // Homepage
         Homepage pageOne = PageFactory.initElements(driver, Homepage.class);
@@ -45,10 +59,12 @@ public class DemoSite {
 
         // Add A User Page
         EnterUser pageTwo = PageFactory.initElements(driver, EnterUser.class);
-        pageTwo.enterUsername();
+//        pageTwo.enterUsername();
+        pageTwo.enterUsername(cell.getStringCellValue());
         Thread.sleep(500);
 
-        pageTwo.enterPassword();
+//        pageTwo.enterPassword();
+        pageTwo.enterPassword(cellTwo.getStringCellValue());
         Thread.sleep(500);
 
         pageTwo.saveDetails();
@@ -80,30 +96,30 @@ public class DemoSite {
         test.log(LogStatus.PASS, "Verify Title of the page");
 
         // Data Driven Testing
-        FileInputStream file = null;
-        try {
-            file = new FileInputStream(Constant.Path_TestData + Constant.File_TestData);
-        } catch (FileNotFoundException e) {}
-            XSSFWorkbook workbook = null;
-            try {
-                workbook = new XSSFWorkbook(file);
-            } catch (IOException i) {}
-                XSSFSheet sheet = workbook.getSheetAt(0);
-                XSSFCell cell = sheet.getRow(1).getCell(0);
-                System.out.println("The username is: " + cell.getStringCellValue());
-
-
-        FileInputStream fileTwo = null;
-        try {
-            fileTwo = new FileInputStream(Constant.Path_TestData + Constant.File_TestData);
-        } catch (FileNotFoundException e) {}
-            XSSFWorkbook workbookTwo = null;
-            try {
-                workbookTwo = new XSSFWorkbook(fileTwo);
-            } catch (IOException i) {}
-                XSSFSheet sheetTwo = workbookTwo.getSheetAt(0);
-                XSSFCell cellTwo = sheetTwo.getRow(1).getCell(1);
-                System.out.println("The password is: " + cellTwo.getStringCellValue());
+//        FileInputStream file = null;
+//        try {
+//            file = new FileInputStream(Constant.Path_TestData + Constant.File_TestData);
+//        } catch (FileNotFoundException e) {}
+//            XSSFWorkbook workbook = null;
+//            try {
+//                workbook = new XSSFWorkbook(file);
+//            } catch (IOException i) {}
+//                XSSFSheet sheet = workbook.getSheetAt(0);
+//                XSSFCell cell = sheet.getRow(1).getCell(0);
+//                System.out.println("The username is: " + cell.getStringCellValue());
+//
+//
+//        FileInputStream fileTwo = null;
+//        try {
+//            fileTwo = new FileInputStream(Constant.Path_TestData + Constant.File_TestData);
+//        } catch (FileNotFoundException e) {}
+//            XSSFWorkbook workbookTwo = null;
+//            try {
+//                workbookTwo = new XSSFWorkbook(fileTwo);
+//            } catch (IOException i) {}
+//                XSSFSheet sheetTwo = workbookTwo.getSheetAt(0);
+//                XSSFCell cellTwo = sheetTwo.getRow(1).getCell(1);
+//                System.out.println("The password is: " + cellTwo.getStringCellValue());
     }
 
 

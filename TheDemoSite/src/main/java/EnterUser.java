@@ -15,14 +15,24 @@ public class EnterUser {
     @FindBy(xpath = "/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/p/small/a[4]")
     private WebElement loginPage;
 
-    public void enterUsername(){
-        usernameForm.click();
-        usernameForm.sendKeys("Daniel");
-    }
+//    public void enterUsername(){
+//        usernameForm.click();
+//        usernameForm.sendKeys("Daniel");
+//    }
 
-    public void enterPassword(){
+    public void enterUsername(String arg){
+        usernameForm.click();
+        usernameForm.sendKeys(arg);
+    }
+//
+//    public void enterPassword(){
+//        passwordForm.click();
+//        passwordForm.sendKeys("Password");
+//    }
+
+    public void enterPassword(String arg){
         passwordForm.click();
-        passwordForm.sendKeys("Password");
+        passwordForm.sendKeys(arg);
     }
 
     public void saveDetails(){
